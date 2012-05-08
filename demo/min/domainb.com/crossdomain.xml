@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<!-- specification at http://learn.adobe.com/wiki/download/attachments/64389123/CrossDomain_PolicyFile_Specification.pdf?version=1 -->
 <cross-domain-policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
 	<site-control permitted-cross-domain-policies="master-only" />
 	<!--

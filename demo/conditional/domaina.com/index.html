@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+See TODOs below for testing cross-origin sharing
+-->
+<head>
+<title>Test flxhr jquery - Conditional loading</title>
+</head>
+<body>
+
+<p>
+This page tests whether jquery can load into a page, with flxhr loaded conditionally, only if the browser does not support
+CORS.
+See the source for how to configure the server end to receive cross-domain calls. Obviously, testing locally won't
+demonstrate much as there's no need for CORS or flxhr within the same domain.
+</p>
+
+
+<div><a id=test href="/">Test</a></div>
+<div id=status></div>
+
+<script src="jquery.js"></script>
+
+<script>
+(function () {
+	var status = $('#status');
+
+	function ready() {
+		$('#test').click(function (ev) {
+			ev.preventDefault();
+			status.text('Testing...');
+			$.ajax({
+				/*
+				TODO: Replace domainb.com with a domain outside the one this code is running on.
+				domainb.com should have a file at root named crossdomain.xml (see folder domainb.com). Should also obviously
+				have a server stack (Node.js, ASP.Net, whatever) that can respond to requests.
+
+				/testcors can be replaced with whatever path you like. This example assumes the path accessed returns a JSON
+				response like:
+
+				{
+				message: The message sent in the AJAX submission to verify round-trip data is working
+				origin: The Origin in the request header - null in flxhr requests, the domain of this site in CORS requests
+				host: The host portion of the HTTP_REFERER from the request headers. Note that this is just interesting debug
+				info - you can't use REFERER to validate requests because malicious Flash can spoof the REFERER.
+				}
+
+				*/
+				url: '//domainb.com/testcors',
+				data: { message: 'Test Message' },
+				type: 'POST',
+				dataType: 'json',
+				flXHR: !$.support.cors,
+				success: function (r) {
+					status.text('success: ' + r.message + ', origin: ' + r.origin + ', host: ' + r.host);
+				},
+				error: function (a, b, c) {
+					status.text('error');
+				}
+			});
+		});
+	}
+
+	if ($.support.cors) {
+		status.text('CORS supported. No flxhr necessary. Page ready.');
+		ready();
+	} else {
+		status.text('No CORS support, loading flxhr...');
+		$.getScript('jquery.flxhr.js', function () {
+			status.text('flxhr loaded. Page ready.');
+			ready();
+		});
+	}
+})();
+</script>
+
+</body>
+</html>
