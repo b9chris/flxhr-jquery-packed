@@ -44,3 +44,5 @@ You can use flxhr in a few ways. The simplest way is to just include it with jqu
 
 You can also opt to include the flxhr code only if cors is not supported, using `$.getScript()`. This adds the time of an extra round-trip to legacy browsers like IE9 and below, but saves initialization code for browsers like IE10 Chrome.
 
+You could also use the browser's User-Agent to determine whether to deliver a single minified file that does or does not include flxhr, but there is a risk your User-Agent list doesn't match reality (for example as newer browsers are released) and you end up with a broken site for some users. Not a reason to avoid the User-Agent route, just a reason to get the UA whitelist right and be vigilant about it.
+
