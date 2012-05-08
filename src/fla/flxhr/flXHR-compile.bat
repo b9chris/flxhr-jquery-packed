@@ -10,8 +10,8 @@ REM		from: http://www.adobe.com/products/flex/flexdownloads/
 REM
 REM		====================================================================================================
 
-ECHO Compiling flXHR.swf...
-del flXHR.swf 1>nul 2>&1
+ECHO Compiling flxhr.swf...
+del flxhr.swf 1>nul 2>&1
 mxmlc -load-config=flXHR-compile.xml Main.as
 echo Done, press any key...
 pause > nul

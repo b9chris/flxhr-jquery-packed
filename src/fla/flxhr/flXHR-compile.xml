@@ -26,7 +26,7 @@
       <height>1</height>
    </default-size>
    <use-network>true</use-network>
-   <output>flXHR.swf</output>
+   <output>flxhr.swf</output>
 
    <compiler>
       <show-actionscript-warnings>false</show-actionscript-warnings>

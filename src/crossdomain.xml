@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.adobe.com/xml/schemas/PolicyFile.xsd">
+	<site-control permitted-cross-domain-policies="master-only" />
+	<!--
+	Replace domain.com with the domain from which Ajax requests will originate. Put another way:
+	
+	Domain A: Where your site resides - what the user sees in their browser's address bar. Include flxhr here.
+	Domain B: Where this crossdomain.xml file resides. Names Domain A below.
+	-->
+	<allow-access-from domain="domain.com" />
+	<allow-http-request-headers-from domain="domain.com" headers="*" />
+</cross-domain-policy>
