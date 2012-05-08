@@ -1,13 +1,18 @@
-/*	flensedCore 1.0 <http://www.flensed.com/>
-	Copyright (c) 2008 Kyle Simpson, Getify Solutions, Inc.
-	This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+/*
+jquery.flxhr <https://github.com/b9chris/flxhr-jquery-packed>
+by Chris Moschini
 
-	====================================================================================================
-	Portions of this code were extracted and/or derived from:
+Forked from:
+flensedCore 1.0 <http://www.flensed.com/>
+Copyright (c) 2008 Kyle Simpson, Getify Solutions, Inc.
+This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
 
-	SWFObject v2.1 & 2.2a8 <http://code.google.com/p/swfobject/>
-	Copyright (c) 2007-2008 Geoff Stearns, Michael Williams, and Bobby van der Sluis
-	This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+====================================================================================================
+Portions of this code were extracted and/or derived from:
+
+SWFObject v2.1 & 2.2a8 <http://code.google.com/p/swfobject/>
+Copyright (c) 2007-2008 Geoff Stearns, Michael Williams, and Bobby van der Sluis
+This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
 */
 
 (function(global){

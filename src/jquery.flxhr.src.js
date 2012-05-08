@@ -1,25 +1,30 @@
-/*	jQuery.flXHRproxy 2.0a <http://flxhr.flensed.com/>
-	Copyright (c) 2009-2011 Kyle Simpson
-	Contributions by Julian Aubourg
-	This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+/*	
+jquery.flxhr <https://github.com/b9chris/flxhr-jquery-packed>
+by Chris Moschini
+
+Forked from:
+jQuery.flxhrProxy 2.0a <http://flxhr.flensed.com/>
+Copyright (c) 2009-2011 Kyle Simpson
+Contributions by Julian Aubourg
+This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
 	
-	This plugin causes jQuery to treat flXHR as an XHR object, as a replacement of the native XHR, additionally 
-	allowing authorized cross-domain communication through flash's crossdomain.xml policy model.
+This plugin causes jQuery to treat flXHR as an XHR object, as a replacement of the native XHR, additionally 
+allowing authorized cross-domain communication through flash's crossdomain.xml policy model.
 	
-	This plugin allows an author to register a set of flXHR configuration options to be tied to each URL
-	that will be communicated with. Typical usage might be:
+This plugin allows an author to register a set of flXHR configuration options to be tied to each URL
+that will be communicated with. Typical usage might be:
 	
-	jQuery.flXHRproxy.registerOptions('http://www.mydomain.com/',{xmlResponseText:false...});
-	jQuery.flXHRproxy.registerOptions('http://rss.mydomain.com/',{xmlResponseText:true...});
-	...
-	jQuery.ajax({url:'http://www.mydomain.com/something.html'...});
-	...
-	jQuery.ajax({url:'http://rss.mydomain.com/feed.html'...});
+jQuery.flxhrProxy.registerOptions('http://www.mydomain.com/',{xmlResponseText:false...});
+jQuery.flxhrProxy.registerOptions('http://rss.mydomain.com/',{xmlResponseText:true...});
+...
+jQuery.ajax({url:'http://www.mydomain.com/something.html'...});
+...
+jQuery.ajax({url:'http://rss.mydomain.com/feed.html'...});
 
 */
 
 ;(function($){
-	$.flXHRproxy = flensed.flXHR;	// make jQuery.flXHRproxy a reference alias to flensed.flXHR, for convenience
+	$.flxhrProxy = flensed.flXHR;	// make jQuery.flxhrProxy a reference alias to flensed.flXHR, for convenience
 	
 	var _opts = [],
 		r_type = /^(?:post|get)$/i,
@@ -29,7 +34,7 @@
 		}
 	;
 	
-	$.flXHRproxy.registerOptions = function(url,fopts) {	// call to define a set of flXHR options to be applied to a 
+	$.flxhrProxy.registerOptions = function(url,fopts) {	// call to define a set of flXHR options to be applied to a 
 															// matching request URL
 		fopts = $.extend( {}, defaultOptions, fopts || {} );
 
@@ -48,8 +53,8 @@
 			
 			// Use flXHR if we have options OR if said to do so
 			// with the explicit as.flXHR option
-			if ( useopts || as.flXHR ) {
-				as.flXHROptions = useopts || defaultOptions;
+			if ( useopts || as.flxhr) {
+				as.flxhrOptions = useopts || defaultOptions;
 				// Derail the transport selection
 				return "__flxhr__";
 			}
@@ -70,8 +75,8 @@
 		// The transport
 		return {
 			send: function( headers, complete ) {
-				var options = as.flXHROptions || defaultOptions,
-					xhr = jqXHR.__flXHR__ = new $.flXHRproxy( options ),
+				var options = as.flxhrOptions || defaultOptions,
+					xhr = jqXHR.__flXHR__ = new $.flxhrProxy( options ),
 					isError;
 				// Define callback
 				callback = function( status, error ) {

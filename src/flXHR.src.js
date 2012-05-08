@@ -1,8 +1,13 @@
-/*	flXHR 1.0.6 <http://flxhr.flensed.com/>
-	Copyright (c) 2008-2010 Kyle Simpson, Getify Solutions, Inc.
-	This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+/*
+jquery.flxhr <https://github.com/b9chris/flxhr-jquery-packed>
+by Chris Moschini
 
-	====================================================================================================
+Forked from:
+flXHR 1.0.6 <http://flxhr.flensed.com/>
+Copyright (c) 2008-2010 Kyle Simpson, Getify Solutions, Inc.
+This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+
+====================================================================================================
 */
 
 (function(global){
