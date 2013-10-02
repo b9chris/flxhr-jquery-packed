@@ -16,7 +16,7 @@ Flxhr and its jquery wrapper are composed of 4 js files, 2 swf files, and 1 vbs 
 
 In response to these concerns the `load_script` method and other lazy-loading code is removed. Two features are also removed: IE-only VBS-file based binary support, and XML document support (since modern AJAX is really AJAJ - json is fetched, not XML).
 
-This project's js files can be minified into a single slimmer script that works alone (with its 2 related .swf files on the server ready to be fetched) or inlined directly into HTML (preferably at the end of the body tag). Minified, the total jquery plugin comes to 31k, and the 2 swf files add an additional 12k. The total minified package weighs 43k, a savings of 14%. Future versions may save more.
+This project's js files can be minified into a single slimmer script that works alone (with its 2 related .swf files on the server ready to be fetched) or inlined directly into HTML (preferably at the end of the body tag). Minified, the total jquery plugin comes to 31k, and the 2 swf files add an additional 12k. The total minified package weighs 43k, a savings of 14%. It's likely you could fork this repo and save even more with some wise code elimination and simplification.
 
 ## Usage ##
 
@@ -42,7 +42,10 @@ You can use flxhr in a few ways. The simplest way is to just include it with jqu
     })();
     </script>
 
-You can also opt to include the flxhr code only if cors is not supported, using `$.getScript()`. This adds the time of an extra round-trip to legacy browsers like IE9 and below, but saves initialization code for browsers like IE10 Chrome. See demo/coonditional in this project for an example.
+You can also opt to include the flxhr code only if cors is not supported, using `$.getScript()`. This adds the time of an extra round-trip to legacy browsers like IE9 and below, but saves initialization code for browsers like IE10 Chrome. See demo/conditional in this project for an example.
 
 You could also use the browser's User-Agent to determine whether to deliver a single minified file that does or does not include flxhr, but there is a risk your User-Agent list doesn't match reality (for example as newer browsers are released) and you end up with a broken site for some users. Not a reason to avoid the User-Agent route, just a reason to get the UA whitelist right and be vigilant about it.
 
+## Roadmap ##
+
+I have no plans to improve flxhr-jquery-packed further - with the browsers that require it shrinking in usage every day it's destined for the dustbin. That said if you do have need for it I encourage you to look at making it even smaller - there's probably still a lot of low-hanging fruit.
